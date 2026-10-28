@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=4">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Person","@id":"https://www.kiranyenaganti.com/#person","name":"Kiran Yenaganti","alternateName":"Kiran Kumar Yenaganti","url":"https://www.kiranyenaganti.com/","image":"https://www.kiranyenaganti.com/kiran-portrait.jpeg","jobTitle":"Founder, DataGovernAI LLC","description":"Founder of DataGovernAI LLC and independent researcher in runtime governance for autonomous AI agents; author of Nothing: A Novel.","worksFor":{"@id":"https://www.kiranyenaganti.com/#org"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Hult International Business School"},{"@type":"CollegeOrUniversity","name":"University of the Cumberlands"}],"knowsAbout":["AI runtime governance","Multi-agent systems","AI agent verification","Human-in-the-loop escalation","Data engineering"],"sameAs":["https://www.linkedin.com/in/kiran-yenaganti/","https://github.com/kiranyenaganti9","https://orcid.org/0009-0008-6291-1316","https://scholar.google.com/citations?user=bmWAnDgAAAAJ","https://ssrn.com/author=13609628","https://www.researchgate.net/profile/Kiran-Yenaganti-2","https://medium.com/@kiranyenaganti9","https://www.crunchbase.com/person/kiran-yenaganti-6b8e","https://www.goodreads.com/author/show/73226203.Kiran_Yenaganti"]},
@@ -27,6 +27,33 @@
 {"@type":"WebSite","@id":"https://www.kiranyenaganti.com/#site","url":"https://www.kiranyenaganti.com/","name":"Kiran Yenaganti","publisher":{"@id":"https://www.kiranyenaganti.com/#person"}}
 ]}
 </script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+.bk{max-width:1080px;margin:0 auto;padding:72px 24px 96px}
+.bk-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc,#e8b04a)}
+.bk-h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(44px,6vw,72px);line-height:1.02;margin:14px 0 0;letter-spacing:-.01em}
+.bk-lede{max-width:560px;margin:18px 0 0;font-size:18px;line-height:1.6;opacity:.72}
+.bk-feat{display:grid;grid-template-columns:minmax(220px,360px) 1fr;gap:64px;align-items:center;margin-top:72px}
+.bk-cover{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;border-radius:3px;box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.06);transform:perspective(1200px) rotateY(-6deg);transition:transform .5s}
+.bk-cover:hover{transform:perspective(1200px) rotateY(0)}
+.bk-feat h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(40px,5vw,60px);margin:12px 0 0;letter-spacing:.08em}
+.bk-feat .q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;line-height:1.4;opacity:.85;margin:20px 0 0;max-width:520px}
+.bk-feat p.d{font-size:16px;line-height:1.7;opacity:.7;max-width:520px;margin:18px 0 0}
+.bk-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.bk-btn{display:inline-block;padding:12px 20px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,.18);color:inherit}
+.bk-btn.pri{background:var(--acc,#e8b04a);color:#111;border-color:transparent}
+.bk-rule{border:0;border-top:1px solid rgba(255,255,255,.1);margin:96px 0 48px}
+.bk-next{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px}
+.bk-item{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start}
+.bk-mini{aspect-ratio:2/3;border-radius:3px;background:linear-gradient(160deg,#1b2128,#0d1014);box-shadow:0 0 0 1px rgba(255,255,255,.07),0 20px 40px -20px #000;display:flex;flex-direction:column;justify-content:space-between;padding:14px 10px;text-align:center}
+.bk-mini b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:15px;letter-spacing:.14em;line-height:1.25;text-transform:uppercase;margin-top:18px}
+.bk-mini i{display:block;width:26px;height:1px;background:var(--acc,#e8b04a);margin:10px auto}
+.bk-mini small{font-size:7px;letter-spacing:.2em;opacity:.7}
+.bk-mini.soon{background:repeating-linear-gradient(135deg,#12161a 0 8px,#151a1f 8px 16px)}
+.bk-item h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;margin:8px 0 0;line-height:1.1}
+.bk-item p{font-size:15px;line-height:1.6;opacity:.68;margin:10px 0 0}
+@media(max-width:760px){.bk-feat{grid-template-columns:1fr;gap:36px}.bk-cover{max-width:280px;transform:none}.bk{padding-top:48px}}
+</style>
 </head>
 <body>
 <header class="site"><nav class="site wrap" aria-label="Primary">
@@ -39,15 +66,22 @@
 <a href="/about/">About</a>
 <a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
 </div></nav></header>
-<main id="main">
-<article class="art"><div class="wrap">
-<div class="head"><p class="book-tag">Library</p><h1>Books</h1><p class="sub">Fiction about time, money and power. Nonfiction about how autonomous systems should earn the right to act.</p></div>
-<div class="books-grid">
-<a class="book-card" href="/books/nothing/"><img class="book-cover" src="/books/nothing/cover.jpg" alt="Nothing: A Novel cover" loading="lazy"><span class="book-tag">Novel · Available</span><h3>Nothing</h3><p>A philosophical novel about biological time, money and the quiet machinery of power.</p></a>
-<div class="book-card"><div class="book-ph">Evidence<br>Before<br>Action</div><span class="book-tag">Nonfiction · Forthcoming</span><h3>Evidence Before Action</h3><p>A practical book on runtime governance for AI agents: permission, freshness of facts, and proof before an agent acts.</p></div>
-<div class="book-card"><div class="book-ph">Next title<br>in progress</div><span class="book-tag">Coming next</span><h3>More books on the way</h3><p>New titles will appear here as they are released. Follow on LinkedIn for release news.</p></div>
-</div></div></article>
-</main>
+<main id="main"><section class="bk">
+<div class="bk-eyebrow">Books</div>
+<h1 class="bk-h1">Stories about time.<br>Books about trust.</h1>
+<p class="bk-lede">A novel that asks what we trade our hours for, and nonfiction on how autonomous systems should earn the right to act.</p>
+<div class="bk-feat">
+<a href="/books/nothing/"><img class="bk-cover" src="/books/nothing/cover.jpg" alt="Nothing: A Novel by Kiran Yenaganti"></a>
+<div><div class="bk-eyebrow">Novel · Out now</div><h2>NOTHING</h2>
+<p class="q">A philosophical novel about biological time, money, and the quiet machinery of power.</p>
+<p class="d">Available in Kindle and paperback editions.</p>
+<div class="bk-btns"><a class="bk-btn pri" href="https://www.amazon.com/dp/B0HPKKMYDZ" rel="noopener">Get it on Amazon</a><a class="bk-btn" href="https://www.amazon.com/dp/B0HPJPLDXW" rel="noopener">Other edition</a><a class="bk-btn" href="/books/nothing/">About the book →</a></div></div>
+</div>
+<hr class="bk-rule"><div class="bk-eyebrow" style="margin-bottom:32px">Coming next</div>
+<div class="bk-next">
+<div class="bk-item"><div class="bk-mini"><b>Evidence<br>Before<br>Action</b><div><i></i><small>KIRAN YENAGANTI</small></div></div><div><div class="bk-eyebrow">Nonfiction · Forthcoming</div><h3>Evidence Before Action</h3><p>Runtime governance for AI agents: permission, freshness of facts, and proof before an agent acts.</p></div></div>
+<div class="bk-item"><div class="bk-mini soon"><b style="opacity:.5">Title<br>to be<br>announced</b><div><i></i><small>KIRAN YENAGANTI</small></div></div><div><div class="bk-eyebrow">In progress</div><h3>More titles on the way</h3><p>New books will be announced here first. <a href="https://www.linkedin.com/in/kiran-yenaganti/">Follow on LinkedIn</a> for release news.</p></div></div>
+</div></section></main>
 <footer class="site"><div class="wrap">
 <div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
 <div class="links">
