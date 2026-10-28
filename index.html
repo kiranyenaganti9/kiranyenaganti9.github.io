@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiran Yenaganti — Runtime governance for autonomous AI agents</title>
+<meta name="description" content="Kiran Yenaganti researches and builds runtime governance for AI agents: evidence checks, policy enforcement and human escalation at execution time. Founder of DataGovernAI LLC.">
+<meta name="author" content="Kiran Yenaganti">
+<link rel="canonical" href="https://www.kiranyenaganti.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kiran Yenaganti — Runtime governance for autonomous AI agents">
+<meta property="og:description" content="Kiran Yenaganti researches and builds runtime governance for AI agents: evidence checks, policy enforcement and human escalation at execution time. Founder of DataGovernAI LLC.">
+<meta property="og:url" content="https://www.kiranyenaganti.com/">
+<meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0E">
+<meta name="msvalidate.01" content="07E7765EF72F0B1B570C5CE54EDE014B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site"><nav class="site wrap" aria-label="Primary">
+<a class="brand" href="/">KIRAN YENAGANTI</a>
+<div class="links">
+<a href="/research/">Research</a>
+<a href="/work/hominini/">DataGovernAI</a>
+<a href="/#patent">Patent</a>
+<a href="/about/">About</a>
+<a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
+</div></nav></header>
+<main id="main">
+
+<section class="hero" id="top"><div class="wrap">
+<div class="copy">
+<div class="eyebrow">Runtime governance for autonomous AI agents</div>
+<h1>An AI agent should not act on evidence that has already expired.</h1>
+<p class="lead">I research and build the layer that sits between an agent's decision and its action: checking the evidence is current, enforcing policy, and escalating to a human when the risk calls for it.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a class="btn btn-acc" href="#layer">See the governance layer</a>
+<a class="btn btn-ghost" href="https://www.researchgate.net/publication/414519349_EVIDENCE-BOUND_RUNTIME_GOVERNANCE_FOR_AUTONOMOUS_MULTI-AGENT_AI_SYSTEMS_POLICY_ENFORCEMENT_MONITORING_AND_RISK-BASED_HUMAN_ESCALATION">Read the manuscript</a>
+</div>
+<div class="proofs">
+<div><span class="label">Patent application</span>U.S. 19/269,037</div>
+<div><span class="label">Manuscripts</span>SSRN · ResearchGate</div>
+<div><span class="label">Founder</span>DataGovernAI LLC</div>
+</div>
+</div>
+<div class="trace"><div class="box">
+<div class="bar"><span>datagovernai · runtime log</span><span style="color:var(--acc)">● live</span></div>
+<div class="body">
+<div class="l"><span class="t">14:02:11</span><span class="m">agent <b>leasing-assistant</b> requests <b>confirm_tour(unit 4B)</b></span></div>
+<div class="l"><span class="t">14:02:11</span><span class="m">evidence: availability record · fetched <b>31 min ago</b></span></div>
+<div class="l"><span class="t">14:02:12</span><span class="m">policy: freshness ≤ 15 min for commitments → <span style="color:var(--warn)">STALE</span></span></div>
+<div class="l"><span class="t">14:02:12</span><span class="m">risk: binding commitment · tier <b>high</b></span></div>
+<div class="hold"><b>ACTION HELD · ESCALATED TO HUMAN</b><span class="m">Re-fetch availability, then approve or reject. Prior approval invalidated by evidence change.</span></div>
+<div class="l"><span class="t">14:02:13</span><span class="m">audit record <b>#a91f</b> written</span></div>
+</div></div>
+<div class="cap">Illustrative decision trace from the DataGovernAI research prototype.</div>
+</div>
+</div></section>
+
+<section class="alt tight"><div class="wrap split">
+<div class="a"><h2 class="h2s">Permission is not the same as being right.</h2></div>
+<div class="b">
+<p>Most agent frameworks ask one question before acting: is this allowed? They rarely ask the second one: is the information this action depends on still true?</p>
+<p>My work treats evidence as something that ages. An approval granted on one state of the world should not survive a change in that state. The governance layer checks evidence at execution time, applies policy, and routes high-risk actions to a person — with an audit record for every decision.</p>
+</div></div></section>
+
+<section id="layer"><div class="wrap stack" style="gap:48px">
+<div class="stack" style="gap:12px;max-width:640px"><div class="eyebrow">The governance layer</div><h2 class="h2">Three checks between a decision and an action.</h2></div>
+<div class="row">
+<div class="card" style="flex:1 1 280px"><div class="label">01</div><h3>Evidence check</h3><p>Every action declares the facts it relies on. The layer verifies each one is current, sourced, and consistent before the action proceeds.</p></div>
+<div class="card" style="flex:1 1 280px"><div class="label">02</div><h3>Policy gate</h3><p>Rules are enforced at runtime, not only at design time. A permitted action with stale evidence is still held.</p></div>
+<div class="card" style="flex:1 1 280px"><div class="label">03</div><h3>Risk-based escalation</h3><p>Low-risk actions run. High-risk or binding ones go to a human, with the evidence and the reason attached. Everything is logged.</p></div>
+</div>
+<div class="row" style="align-items:center;justify-content:space-between;padding:24px 28px;border:1px solid var(--line2);border-radius:8px">
+<div class="stack" style="gap:6px;flex:1 1 400px"><div style="font-size:17px;font-weight:500">Prototype case study: an unsupported "all tests passed" claim</div><div class="mute" style="font-size:15px">How the prototype's verifier accepted a claim the workflow never established, and the negative tests that now reject it.</div></div>
+<a class="btn btn-ghost" href="/work/hominini/">Read the case study →</a>
+</div>
+</div></section>
+
+<section class="alt" id="research"><div class="wrap stack" style="gap:48px">
+<div class="stack" style="gap:12px;max-width:640px"><div class="eyebrow">Published work</div><h2 class="h2">The research and the filing behind it.</h2></div>
+<div class="row">
+<article class="card" style="flex:1 1 440px;padding:36px;gap:20px">
+<div class="label">Research manuscript</div>
+<h3 style="font-size:26px;line-height:1.25">Evidence-Bound Runtime Governance for Autonomous Multi-Agent AI Systems</h3>
+<p>Policy enforcement, monitoring, and risk-based human escalation. A framework for guiding an agent at execution time when the evidence it was given may no longer hold.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:8px">
+<a class="btn btn-light" style="min-height:44px;padding:11px 18px;font-size:14px" href="https://www.researchgate.net/publication/414519349_EVIDENCE-BOUND_RUNTIME_GOVERNANCE_FOR_AUTONOMOUS_MULTI-AGENT_AI_SYSTEMS_POLICY_ENFORCEMENT_MONITORING_AND_RISK-BASED_HUMAN_ESCALATION">ResearchGate</a>
+<a class="btn btn-ghost" style="min-height:44px;padding:11px 18px;font-size:14px" href="https://doi.org/10.2139/ssrn.7622081">SSRN · DOI</a>
+<a class="btn btn-ghost" style="min-height:44px;padding:11px 18px;font-size:14px" href="/research/runtime-governance/">Summary</a>
+</div></article>
+<article class="card" id="patent" style="flex:1 1 440px;padding:36px;gap:20px">
+<div class="label">U.S. patent application · filed July 15, 2025</div>
+<h3 style="font-size:26px;line-height:1.25">Governed Multi-Agent AI Workflow with Real-Time Data Integration</h3>
+<p>An architecture for coordinating specialized agents with live data, governance checks, audit records, and fallback paths. Nonprovisional utility application 19/269,037.</p>
+<div class="grid2" style="margin-top:auto;padding-top:8px">
+<div><span class="label">Application</span>19/269,037</div>
+<div><span class="label">Inventor</span>Kiran Kumar Yenaganti</div>
+</div></article>
+</div></div></section>
+
+<section><div class="wrap stack" style="gap:24px;align-items:flex-start">
+<div class="eyebrow">What others say</div>
+<blockquote class="quote">"[QUOTE FROM A COLLABORATOR, REVIEWER, PROFESSOR OR PILOT USER — one or two sentences on the work or the problem.]"</blockquote>
+<div class="mute" style="font-size:15px">[NAME], [TITLE, ORGANIZATION]</div>
+</div></section>
+
+<section class="alt tight"><div class="wrap row">
+<a class="card link" href="/insights/when-agent-permission-should-expire/" style="flex:1 1 300px;padding:32px;gap:12px"><div class="label">Research note · Oct 24, 2026</div><h3 style="line-height:1.3">When an AI agent's permission should expire</h3><p>A refund workflow raises a practical question: what should invalidate an earlier approval when the evidence changes?</p></a>
+<a class="card link" href="/insights/agent-timeout-retry/" style="flex:1 1 300px;padding:32px;gap:12px"><div class="label">Research note · Oct 25, 2026</div><h3 style="line-height:1.3">The agent timed out. Should you retry?</h3><p>A timeout doesn't tell you whether the action happened. Workflows need an honest "outcome unknown" state.</p></a>
+<a class="card link" href="/books/nothing/" style="flex:1 1 300px;padding:32px;gap:12px"><div class="label">Also by Kiran · a novel</div><h3 style="line-height:1.3">Nothing</h3><p>A literary novel about work, family and the hours people keep postponing. Paperback and Kindle, October 2026.</p></a>
+</div></section>
+
+<section id="about"><div class="wrap split">
+<div class="a stack" style="gap:12px"><div class="eyebrow">About</div><h2 class="h2s">Kiran Yenaganti</h2></div>
+<div class="b" style="gap:24px">
+<p>Founder of DataGovernAI LLC and an independent researcher in AI runtime governance. Doctoral studies in Information Technology at the University of the Cumberlands; MSc in Entrepreneurship &amp; Innovation from Hult, San Francisco. Background in data engineering on Azure, Databricks, Python and SQL.</p>
+<p>The work started with a leasing assistant that could look up availability and book a tour — and the question of what should happen when that availability data is thirty minutes old.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:8px">
+<a class="btn btn-acc" href="https://www.linkedin.com/in/kiran-yenaganti/">Connect on LinkedIn</a>
+<a class="btn btn-ghost" href="/about/">Full story</a>
+</div></div></div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
+<div class="links">
+<a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a>
+<a href="https://github.com/kiranyenaganti9">GitHub</a>
+<a href="https://orcid.org/0009-0008-6291-1316">ORCID</a>
+<a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Scholar</a>
+<a href="https://ssrn.com/author=13609628">SSRN</a>
+<a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a>
+<a href="https://medium.com/@kiranyenaganti9">Medium</a>
+<a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a>
+</div></div></footer>
+</body>
+</html>

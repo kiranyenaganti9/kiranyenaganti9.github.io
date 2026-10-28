@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The agent timed out. Should you retry?</title>
+<meta name="description" content="A timeout doesn't show whether an action happened. Why agent workflows need an honest 'outcome unknown' state, with a runnable reconciliation example.">
+<meta name="author" content="Kiran Yenaganti">
+<link rel="canonical" href="https://www.kiranyenaganti.com/insights/agent-timeout-retry/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The agent timed out. Should you retry?">
+<meta property="og:description" content="A timeout doesn't show whether an action happened. Why agent workflows need an honest 'outcome unknown' state, with a runnable reconciliation example.">
+<meta property="og:url" content="https://www.kiranyenaganti.com/insights/agent-timeout-retry/">
+<meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0E">
+<meta name="msvalidate.01" content="07E7765EF72F0B1B570C5CE54EDE014B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site"><nav class="site wrap" aria-label="Primary">
+<a class="brand" href="/">KIRAN YENAGANTI</a>
+<div class="links">
+<a href="/research/">Research</a>
+<a href="/work/hominini/">DataGovernAI</a>
+<a href="/#patent">Patent</a>
+<a href="/about/">About</a>
+<a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
+</div></nav></header>
+<main id="main">
+<article class="art"><div class="narrow">
+<div class="head"><h1>The agent timed out. Should you retry?</h1><p class="sub">A timeout does not tell you whether the action happened.</p><div class="meta">Research note · October 25, 2026 · Kiran Yenaganti</div></div>
+<div class="prose">
+<p>If an agent retries a refund after a timeout, it may issue a second one. Workflows need an honest state for this case. I call it <strong>outcome unknown</strong>.</p>
+<h2>Three situations look like one error</h2>
+<p>A timed-out request may never have reached the service. It may have completed with the reply lost. It may still be processing. A generic retry treats all three the same. The right question is: what evidence would justify the next step?</p>
+<h2>Keep the identity of the operation</h2>
+<p>Create an operation identifier before the first submission and keep it through recovery. Where a service supports idempotency, follow that service's documented rules on key scope, retention, parameter matching and concurrency — a key stored only in the agent's notes cannot prevent duplicate effects on the other side. The <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Amazon Builders' Library</a> and <a href="https://docs.stripe.com/api/idempotent_requests">Stripe's API reference</a> are good starting points; read each provider's contract directly.</p>
+<h2>Reconcile before deciding what comes next</h2>
+<ul>
+<li><strong>Confirmed completion</strong> — record the result; do not start a replacement action.</li>
+<li><strong>Retryable failure</strong> — follow the service's retry rules under the same operation identity.</li>
+<li><strong>Still uncertain</strong> — keep it uncertain, then reconcile or escalate.</li>
+</ul>
+<p>An empty lookup is not proof of failure: the original request may arrive later, or the lookup may be stale. Approval is a separate check — a technically safe retry can still be wrong if the amount, destination or authority has changed.</p>
+<h2>A small example you can run</h2>
+<p>A Python example with a fake service that records an effect and then times out. The reconciliation path finds the completed operation; if readback is unavailable, it preserves the unknown outcome. Six local tests cover lost replies, same-key retries, new keys, changed parameters, unavailable readback and missing records. It is a sequential teaching model without durable storage, concurrency enforcement or real-service recovery.</p>
+<p><a href="https://github.com/kiranyenaganti9/kiranyenaganti9/tree/main/examples/timeout-reconciliation">Code and test output on GitHub</a></p>
+<h2>Give recovery a decision boundary</h2>
+<p>Recovery should be an explicit, evidence-based decision. Record the request, its operation identity, what the service acknowledged, the observed state, and what remains unresolved. A retry needs a stronger reason than a task that still says "in progress." When reviewing an agent integration, ask whether the system can identify the original operation and explain why its next action will not cause a second effect.</p>
+<p>Related: <a href="/insights/when-agent-permission-should-expire/">When an AI agent's permission should expire</a></p>
+</div>
+
+</div></article>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
+<div class="links">
+<a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a>
+<a href="https://github.com/kiranyenaganti9">GitHub</a>
+<a href="https://orcid.org/0009-0008-6291-1316">ORCID</a>
+<a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Scholar</a>
+<a href="https://ssrn.com/author=13609628">SSRN</a>
+<a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a>
+<a href="https://medium.com/@kiranyenaganti9">Medium</a>
+<a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a>
+</div></div></footer>
+</body>
+</html>

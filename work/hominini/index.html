@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataGovernAI prototype — engineering case study</title>
+<meta name="description" content="How the DataGovernAI research prototype's verifier accepted an unsupported 'all tests passed' claim, and the repair and regression tests that now reject it.">
+<meta name="author" content="Kiran Yenaganti">
+<link rel="canonical" href="https://www.kiranyenaganti.com/work/hominini/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DataGovernAI prototype — engineering case study">
+<meta property="og:description" content="How the DataGovernAI research prototype's verifier accepted an unsupported 'all tests passed' claim, and the repair and regression tests that now reject it.">
+<meta property="og:url" content="https://www.kiranyenaganti.com/work/hominini/">
+<meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0E">
+<meta name="msvalidate.01" content="07E7765EF72F0B1B570C5CE54EDE014B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site"><nav class="site wrap" aria-label="Primary">
+<a class="brand" href="/">KIRAN YENAGANTI</a>
+<div class="links">
+<a href="/research/">Research</a>
+<a href="/work/hominini/">DataGovernAI</a>
+<a href="/#patent">Patent</a>
+<a href="/about/">About</a>
+<a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
+</div></nav></header>
+<main id="main">
+<article class="art"><div class="narrow">
+<div class="head"><h1>A report said more than the evidence supported.</h1><p class="sub">Engineering case study: repairing the verifier in the DataGovernAI research prototype.</p><div class="meta">DataGovernAI research prototype · 2026</div></div>
+<div class="prose">
+<h2>The failure</h2>
+<p>The prototype produces reports about work it has done, and a verifier is supposed to check those reports against evidence. The verifier accepted appended claims such as "all tests passed" even when the workflow had never established them. A report with valid source references could still overstate what had actually been done.</p>
+<p>This is exactly the failure the research is about: a claim that is permitted to appear, but not supported.</p>
+<h2>The repair</h2>
+<p>I fixed the verification path and added targeted negative tests for the specific kinds of unsupported additions that had been accepted. Those additions are now rejected. The conclusion is narrow by design: the verifier rejects the cases the tests cover. It does not follow that every false claim will be caught.</p>
+<h2>Related prototype work</h2>
+<div class="steps">
+<div class="s"><div class="n">01</div><div><h3>Repository to private report</h3><p>A single run processed the public <code>psf/requests</code> repository through four workflow steps and produced a private report in 3.469 seconds, with no model calls and no changes to the external repository. One observation, not a benchmark.</p></div></div>
+<div class="s"><div class="n">02</div><div><h3>Traceable source inspection</h3><p>Six Python files from a pinned commit were inspected, with content hashes checked and source references included in the report. The code was not executed.</p></div></div>
+<div class="s"><div class="n">03</div><div><h3>Complete findings</h3><p>A formatting limit that silently dropped later findings was reproduced and fixed. A six-file regression test now checks that each fixture's source-linked finding survives report generation.</p></div></div>
+<div class="s"><div class="n">04</div><div><h3>Artifact visibility</h3><p>In an isolated application-level test, the submitting user could see the artifact and an unrelated user could not. Deployed multi-user security has not been established.</p></div></div>
+<div class="s"><div class="n">05</div><div><h3>Diagnostic repair</h3><p>An earlier fix explained a recorded execution limit without restarting work. A 56-test suite covers the gateway and diagnosis helper, separately from the verifier repair.</p></div></div>
+</div>
+<h2>Research direction</h2>
+<p>A working paper, <em>Runtime Accountability for Persistent LLM Multi-Agent Systems</em>, proposes requirements for human authority, evidence, recovery and independent verification. It is distinct from the <a href="/research/runtime-governance/">runtime-governance manuscript</a> and does not yet have a public reading link.</p>
+</div>
+<div style="margin-top:40px"><div class="status"><b>Evidence status.</b> Results are from the developer's local runs. A pinned, independently runnable reproduction package is not yet published, and the results have not been independently validated. Nothing here establishes production readiness, deployed multi-user security, or fully autonomous engineering.</div></div>
+</div></article>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
+<div class="links">
+<a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a>
+<a href="https://github.com/kiranyenaganti9">GitHub</a>
+<a href="https://orcid.org/0009-0008-6291-1316">ORCID</a>
+<a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Scholar</a>
+<a href="https://ssrn.com/author=13609628">SSRN</a>
+<a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a>
+<a href="https://medium.com/@kiranyenaganti9">Medium</a>
+<a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a>
+</div></div></footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence-Bound Runtime Governance — overview</title>
+<meta name="description" content="Overview of Kiran Yenaganti's manuscript on evidence-bound runtime governance for multi-agent AI systems: policy enforcement, evidence checks, and human escalation.">
+<meta name="author" content="Kiran Yenaganti">
+<link rel="canonical" href="https://www.kiranyenaganti.com/research/runtime-governance/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Evidence-Bound Runtime Governance — overview">
+<meta property="og:description" content="Overview of Kiran Yenaganti's manuscript on evidence-bound runtime governance for multi-agent AI systems: policy enforcement, evidence checks, and human escalation.">
+<meta property="og:url" content="https://www.kiranyenaganti.com/research/runtime-governance/">
+<meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0E">
+<meta name="msvalidate.01" content="07E7765EF72F0B1B570C5CE54EDE014B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site"><nav class="site wrap" aria-label="Primary">
+<a class="brand" href="/">KIRAN YENAGANTI</a>
+<div class="links">
+<a href="/research/">Research</a>
+<a href="/work/hominini/">DataGovernAI</a>
+<a href="/#patent">Patent</a>
+<a href="/about/">About</a>
+<a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
+</div></nav></header>
+<main id="main">
+<article class="art"><div class="narrow">
+<div class="head"><h1>Evidence-Bound Runtime Governance for Autonomous Multi-Agent AI Systems</h1><p class="sub">Policy enforcement, monitoring, and risk-based human escalation.</p><div class="meta">Manuscript · SSRN, October 17, 2026 · <a href="https://doi.org/10.2139/ssrn.7622081">DOI 10.2139/ssrn.7622081</a> · <a href="https://www.researchgate.net/publication/414519349_EVIDENCE-BOUND_RUNTIME_GOVERNANCE_FOR_AUTONOMOUS_MULTI-AGENT_AI_SYSTEMS_POLICY_ENFORCEMENT_MONITORING_AND_RISK-BASED_HUMAN_ESCALATION">ResearchGate</a></div></div>
+<div class="prose">
+<blockquote>An AI agent can have permission to act and still lack the evidence to make a sound decision.</blockquote>
+<h2>Permission does not settle the question</h2>
+<p>A leasing assistant may be fully authorized to use a scheduling system. The availability record it retrieved may still be stale, or another agent may have handed it an unverified assumption. A policy check tells you whether the action is allowed. It says nothing about whether the information behind it is adequate.</p>
+<h2>Three questions at execution time</h2>
+<div class="steps">
+<div class="s"><div class="n">01</div><div><h3>Is the action permitted?</h3><p>Check it against policy and the agent's authority.</p></div></div>
+<div class="s"><div class="n">02</div><div><h3>What supports the decision?</h3><p>Is the information relevant, current and sufficient? Are there gaps or contradictions?</p></div></div>
+<div class="s"><div class="n">03</div><div><h3>Does a person need to decide?</h3><p>If evidence or authority is insufficient, pause or escalate. Uncertainty is not approval.</p></div></div>
+</div>
+<h2>An illustration</h2>
+<p>An agent is asked to confirm a tour against an availability record fetched half an hour ago. A governed workflow would re-fetch or route the decision to a person before committing, and log why. This is an illustration of the approach, not an experimental result.</p>
+<h2>From use case to research question</h2>
+<p>The leasing concept led to broader questions: how agents coordinate, how they use enterprise data, and how they recover when a model or data source fails. Those questions shaped the patent application on governed multi-agent workflows and the <a href="/work/hominini/">DataGovernAI prototype</a>, where parts of the approach are tested in code.</p>
+<h2>Open questions</h2>
+<ul>
+<li>How evidence quality is defined and measured.</li>
+<li>How escalation thresholds are chosen.</li>
+<li>How conflicting sources are handled.</li>
+<li>What governance checks cost in task completion and latency.</li>
+</ul>
+<p><a class="btn btn-light" href="https://www.researchgate.net/publication/414519349_EVIDENCE-BOUND_RUNTIME_GOVERNANCE_FOR_AUTONOMOUS_MULTI-AGENT_AI_SYSTEMS_POLICY_ENFORCEMENT_MONITORING_AND_RISK-BASED_HUMAN_ESCALATION">Read on ResearchGate</a></p>
+</div>
+<div style="margin-top:40px"><div class="status"><b>Status.</b> The manuscript proposes an architecture and an evaluation design. Experiments against that design have not yet been run, and the work is not peer reviewed. The prototype's regression tests cover specific repairs, not the full approach.</div></div>
+</div></article>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
+<div class="links">
+<a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a>
+<a href="https://github.com/kiranyenaganti9">GitHub</a>
+<a href="https://orcid.org/0009-0008-6291-1316">ORCID</a>
+<a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Scholar</a>
+<a href="https://ssrn.com/author=13609628">SSRN</a>
+<a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a>
+<a href="https://medium.com/@kiranyenaganti9">Medium</a>
+<a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a>
+</div></div></footer>
+</body>
+</html>

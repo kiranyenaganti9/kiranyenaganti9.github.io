@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The token is valid. The destination is wrong.</title>
+<meta name="description" content="An MCP authorization example: audience checks, caller binding and delegation, with 18 local tests.">
+<meta name="author" content="Kiran Yenaganti">
+<link rel="canonical" href="https://www.kiranyenaganti.com/notes/mcp-audience-boundary/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The token is valid. The destination is wrong.">
+<meta property="og:description" content="An MCP authorization example: audience checks, caller binding and delegation, with 18 local tests.">
+<meta property="og:url" content="https://www.kiranyenaganti.com/notes/mcp-audience-boundary/">
+<meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B0C0E">
+<meta name="msvalidate.01" content="07E7765EF72F0B1B570C5CE54EDE014B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site"><nav class="site wrap" aria-label="Primary">
+<a class="brand" href="/">KIRAN YENAGANTI</a>
+<div class="links">
+<a href="/research/">Research</a>
+<a href="/work/hominini/">DataGovernAI</a>
+<a href="/#patent">Patent</a>
+<a href="/about/">About</a>
+<a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
+</div></nav></header>
+<main id="main">
+<article class="art"><div class="narrow">
+<div class="head"><h1>The token is valid. The destination is wrong.</h1><p class="sub">An MCP authorization example: audience, caller binding, and a denial that actually stops execution.</p><div class="meta">Technical note · October 28, 2026 · Kiran Yenaganti</div></div>
+<div class="prose">
+<p>A valid token issued for one service can still be the wrong credential for another. This example checks the target resource, the acting agent, and whether the action actually goes ahead.</p>
+<h2>Start with the destination</h2>
+<p>A token can be authentic and unexpired and still be wrong for the server receiving it. The MCP authorization specification requires servers to check that tokens were issued for their intended audience, and forbids token passthrough [1][2]. Scope says what access is permitted; audience says which resource it was meant for (RFC 8707, resource indicators [3]). The example accepts one exact audience identifier — a simplification of real deployments.</p>
+<h2>The contribution in this example</h2>
+<p>One decision path that:</p>
+<ul>
+<li>binds the proposed caller to an authenticated identity;</li>
+<li>restricts which agents a subject may use to start work;</li>
+<li>checks delegation against the specific resource and operation.</li>
+</ul>
+<p>Four records: <code>TrustedClaims</code>, <code>TrustedIdentity</code>, <code>ToolCall</code> and <code>Policy</code>. The first two must come from trustworthy integration code, never from an agent's own arguments.</p>
+<h2>Why the caller check matters</h2>
+<p>The first version had a gap: an unknown actor could pass by supplying a one-element delegation chain with its own name, and the token subject went unused. The revised version requires the proposed actor to match the authenticated actor, checks the token subject, requires the chain's starting agent to be authorized for that subject, rejects repeated names, and checks each delegation link. These fixes cover the local decision model, not a real framework or its bypass paths.</p>
+<h2>A denial should change what executes</h2>
+<p>A <code>DENY</code> result means nothing if the caller can still invoke the tool. The package includes a dispatch wrapper that calls the transport only after an allow decision. Two tests use an in-memory ledger to confirm that an allowed call arrives once and a wrong-audience call leaves no trace. All 18 local tests pass. There are no network calls and no real tokens; direct transport access would bypass the wrapper.</p>
+<h2>What to test next</h2>
+<p>A controlled integration with two real protected-resource endpoints. Include successful requests, not only rejections, so a disconnected system cannot pass by doing nothing. Test changed destinations, fabricated caller context and bypass paths, and record the observed effect separately from the policy decision.</p>
+<p><a href="https://github.com/kiranyenaganti9/kiranyenaganti9/tree/main/examples/mcp-audience-boundary">Code, README and 18 tests on GitHub</a></p>
+<h2>References</h2>
+<ol>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization">MCP Authorization, revision 2026-07-28</a></li>
+<li><a href="https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices">MCP Security Best Practices — token passthrough</a></li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc8707.html">RFC 8707, Resource Indicators for OAuth 2.0</a></li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc9728.html">RFC 9728, OAuth 2.0 Protected Resource Metadata</a></li>
+</ol>
+</div>
+<div style="margin-top:40px"><div class="status"><b>Status.</b> Educational implementation prepared with AI assistance. Not peer reviewed and not production validated.</div></div>
+</div></article>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
+<div class="links">
+<a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a>
+<a href="https://github.com/kiranyenaganti9">GitHub</a>
+<a href="https://orcid.org/0009-0008-6291-1316">ORCID</a>
+<a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Scholar</a>
+<a href="https://ssrn.com/author=13609628">SSRN</a>
+<a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a>
+<a href="https://medium.com/@kiranyenaganti9">Medium</a>
+<a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a>
+</div></div></footer>
+</body>
+</html>
