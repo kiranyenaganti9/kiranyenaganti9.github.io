@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kiran Yenaganti — Runtime governance for autonomous AI agents</title>
-<meta name="description" content="Kiran Yenaganti researches and builds runtime governance for AI agents: evidence checks, policy enforcement and human escalation at execution time. Founder of DataGovernAI LLC.">
+<meta name="description" content="Kiran Yenaganti builds runtime governance for AI agents: evidence checks, policy enforcement and human escalation at execution time. Try the live demo.">
 <meta name="author" content="Kiran Yenaganti">
 <link rel="canonical" href="https://www.kiranyenaganti.com/">
 <meta property="og:type" content="website">
@@ -39,99 +39,213 @@
 <a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
 </div></nav></header>
 <main id="main">
+<section class="h2o" id="top">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap h2o-grid">
+    <div class="h2o-copy">
+      <div class="eyebrow">Runtime governance for autonomous AI agents</div>
+      <h1>Your AI agent has permission.<br><span class="acc">Does it still have the facts?</span></h1>
+      <p class="lead">I build the layer between an agent's decision and its action. It checks that the evidence is still current, enforces policy at the moment of execution, and hands risky calls to a person.</p>
+      <div class="cta-row">
+        <a class="btn btn-acc" href="#demo">Try the live demo ↓</a>
+        <a class="btn btn-ghost" href="/research/">Read the research</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>U.S.</b> patent application 19/269,037</span>
+        <span class="chip"><b>2</b> SSRN manuscripts</span>
+        <span class="chip"><b>Founder</b>, DataGovernAI</span>
+      </div>
+    </div>
+    <div class="term" aria-label="Animated example of an AI agent action being held for stale evidence">
+      <div class="term-bar"><i></i><i></i><i></i><span>datagovernai · runtime</span><em class="live">● live</em></div>
+      <div class="term-body" id="term"></div>
+    </div>
+  </div>
+</section>
 
-<section class="hero" id="top"><div class="wrap">
-<div class="copy">
-<div class="eyebrow">Runtime governance for autonomous AI agents</div>
-<h1>An AI agent should not act on evidence that has already expired.</h1>
-<p class="lead">I research and build the layer that sits between an agent's decision and its action: checking the evidence is current, enforcing policy, and escalating to a human when the risk calls for it.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap">
-<a class="btn btn-acc" href="#layer">See the governance layer</a>
-<a class="btn btn-ghost" href="https://www.researchgate.net/publication/414519349_EVIDENCE-BOUND_RUNTIME_GOVERNANCE_FOR_AUTONOMOUS_MULTI-AGENT_AI_SYSTEMS_POLICY_ENFORCEMENT_MONITORING_AND_RISK-BASED_HUMAN_ESCALATION">Read the manuscript</a>
-</div>
-<div class="proofs">
-<div><span class="label">Patent application</span>U.S. 19/269,037</div>
-<div><span class="label">Manuscripts</span>SSRN · ResearchGate</div>
-<div><span class="label">Founder</span>DataGovernAI LLC</div>
-</div>
-</div>
-<div class="trace"><div class="box">
-<div class="bar"><span>datagovernai · runtime log</span><span style="color:var(--acc)">● live</span></div>
-<div class="body">
-<div class="l"><span class="t">14:02:11</span><span class="m">agent <b>leasing-assistant</b> requests <b>confirm_tour(unit 4B)</b></span></div>
-<div class="l"><span class="t">14:02:11</span><span class="m">evidence: availability record · fetched <b>31 min ago</b></span></div>
-<div class="l"><span class="t">14:02:12</span><span class="m">policy: freshness ≤ 15 min for commitments → <span style="color:var(--warn)">STALE</span></span></div>
-<div class="l"><span class="t">14:02:12</span><span class="m">risk: binding commitment · tier <b>high</b></span></div>
-<div class="hold"><b>ACTION HELD · ESCALATED TO HUMAN</b><span class="m">Re-fetch availability, then approve or reject. Prior approval invalidated by evidence change.</span></div>
-<div class="l"><span class="t">14:02:13</span><span class="m">audit record <b>#a91f</b> written</span></div>
-</div></div>
-<div class="cap">Illustrative decision trace from the DataGovernAI research prototype.</div>
-</div>
-</div></section>
+<section class="split-vs">
+  <div class="wrap vs-grid reveal">
+    <div class="vs-card ok">
+      <div class="vs-k">What most agent stacks check</div>
+      <div class="vs-q">“Is this action <b>allowed</b>?”</div>
+      <div class="vs-a">✓ Identity valid &nbsp; ✓ Scope valid &nbsp; ✓ Approved</div>
+    </div>
+    <div class="vs-mid">but</div>
+    <div class="vs-card bad">
+      <div class="vs-k">What almost nobody checks</div>
+      <div class="vs-q">“Is the information behind it <b>still true</b>?”</div>
+      <div class="vs-a">✗ Record fetched 31 minutes ago, and it has since changed</div>
+    </div>
+  </div>
+</section>
 
-<section class="alt tight"><div class="wrap split">
-<div class="a"><h2 class="h2s">Permission is not the same as being right.</h2></div>
-<div class="b">
-<p>Most agent frameworks ask one question before acting: is this allowed? They rarely ask the second one: is the information this action depends on still true?</p>
-<p>My work treats evidence as something that ages. An approval granted on one state of the world should not survive a change in that state. The governance layer checks evidence at execution time, applies policy, and routes high-risk actions to a person — with an audit record for every decision.</p>
-</div></div></section>
+<section id="demo" class="demo-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Interactive demo</div>
+      <h2 class="h2">Be the governance layer.</h2>
+      <p class="mute sec-sub">Pick what the agent wants to do and how old its evidence is. Watch the decision change.</p>
+    </div>
+    <div class="demo reveal">
+      <div class="demo-ctrl">
+        <div class="ctrl-label">1 · What is the agent trying to do?</div>
+        <div class="seg" role="radiogroup" aria-label="Agent action">
+          <button type="button" class="seg-b" data-a="read" role="radio">Look up availability</button>
+          <button type="button" class="seg-b on" data-a="tour" role="radio">Confirm a tour</button>
+          <button type="button" class="seg-b" data-a="refund" role="radio">Issue an $80 refund</button>
+        </div>
+        <div class="ctrl-label">2 · How old is the evidence it's acting on?</div>
+        <div class="age-row">
+          <input type="range" id="age" min="0" max="60" value="31" aria-label="Evidence age in minutes">
+          <output id="ageOut">31 min</output>
+        </div>
+        <div class="ctrl-label">3 · Did the data change since it was fetched?</div>
+        <label class="tog"><input type="checkbox" id="changed"><span class="tog-ui"></span><span>Yes, the record was updated</span></label>
+      </div>
+      <div class="demo-out">
+        <div class="verdict" id="verdict"><span class="v-badge" id="vBadge">HOLD</span><span class="v-text" id="vText"></span></div>
+        <ol class="checks" id="checks"></ol>
+        <div class="demo-foot mute">This is a simplified illustration of the approach in my <a href="/research/runtime-governance/">runtime-governance manuscript</a>, not production code.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section id="layer"><div class="wrap stack" style="gap:48px">
-<div class="stack" style="gap:12px;max-width:640px"><div class="eyebrow">The governance layer</div><h2 class="h2">Three checks between a decision and an action.</h2></div>
-<div class="row">
-<div class="card" style="flex:1 1 280px"><div class="label">01</div><h3>Evidence check</h3><p>Every action declares the facts it relies on. The layer verifies each one is current, sourced, and consistent before the action proceeds.</p></div>
-<div class="card" style="flex:1 1 280px"><div class="label">02</div><h3>Policy gate</h3><p>Rules are enforced at runtime, not only at design time. A permitted action with stale evidence is still held.</p></div>
-<div class="card" style="flex:1 1 280px"><div class="label">03</div><h3>Risk-based escalation</h3><p>Low-risk actions run. High-risk or binding ones go to a human, with the evidence and the reason attached. Everything is logged.</p></div>
-</div>
-<div class="row" style="align-items:center;justify-content:space-between;padding:24px 28px;border:1px solid var(--line2);border-radius:8px">
-<div class="stack" style="gap:6px;flex:1 1 400px"><div style="font-size:17px;font-weight:500">Prototype case study: an unsupported "all tests passed" claim</div><div class="mute" style="font-size:15px">How the prototype's verifier accepted a claim the workflow never established, and the negative tests that now reject it.</div></div>
-<a class="btn btn-ghost" href="/work/hominini/">Read the case study →</a>
-</div>
-</div></section>
+<section class="flow-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">How it works</div>
+      <h2 class="h2">Three checks. Every action. Before it runs.</h2>
+    </div>
+    <div class="flow reveal">
+      <div class="node n0"><div class="ic">IN</div><b>Agent decides</b><span>“Book unit 4B for Thursday.”</span></div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="node"><div class="num">01</div><b>Evidence check</b><span>Is every fact this action relies on current and sourced?</span></div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="node"><div class="num">02</div><b>Policy gate</b><span>Is it allowed right now, not just when it was planned?</span></div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="node"><div class="num">03</div><b>Risk routing</b><span>Low risk runs. Binding or costly goes to a person.</span></div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="node n4"><div class="ic">LOG</div><b>Audit record</b><span>What was requested vs. what actually happened.</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="alt" id="research"><div class="wrap stack" style="gap:48px">
-<div class="stack" style="gap:12px;max-width:640px"><div class="eyebrow">Published work</div><h2 class="h2">The research and the filing behind it.</h2></div>
-<div class="row">
-<article class="card" style="flex:1 1 440px;padding:36px;gap:20px">
-<div class="label">Research manuscript</div>
-<h3 style="font-size:26px;line-height:1.25">Evidence-Bound Runtime Governance for Autonomous Multi-Agent AI Systems</h3>
-<p>Policy enforcement, monitoring, and risk-based human escalation. A framework for guiding an agent at execution time when the evidence it was given may no longer hold.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:8px">
-<a class="btn btn-light" style="min-height:44px;padding:11px 18px;font-size:14px" href="https://www.researchgate.net/publication/414519349_EVIDENCE-BOUND_RUNTIME_GOVERNANCE_FOR_AUTONOMOUS_MULTI-AGENT_AI_SYSTEMS_POLICY_ENFORCEMENT_MONITORING_AND_RISK-BASED_HUMAN_ESCALATION">ResearchGate</a>
-<a class="btn btn-ghost" style="min-height:44px;padding:11px 18px;font-size:14px" href="https://doi.org/10.2139/ssrn.7622081">SSRN · DOI</a>
-<a class="btn btn-ghost" style="min-height:44px;padding:11px 18px;font-size:14px" href="/research/runtime-governance/">Summary</a>
-</div></article>
-<article class="card" id="patent" style="flex:1 1 440px;padding:36px;gap:20px">
-<div class="label">U.S. patent application · filed July 15, 2025</div>
-<h3 style="font-size:26px;line-height:1.25">Governed Multi-Agent AI Workflow with Real-Time Data Integration</h3>
-<p>An architecture for coordinating specialized agents with live data, governance checks, audit records, and fallback paths. Nonprovisional utility application 19/269,037.</p>
-<div class="grid2" style="margin-top:auto;padding-top:8px">
-<div><span class="label">Application</span>19/269,037</div>
-<div><span class="label">Inventor</span>Kiran Kumar Yenaganti</div>
-</div></article>
-</div></div></section>
+<section class="stats-sec">
+  <div class="wrap stats reveal">
+    <div class="stat"><div class="sn" data-n="2">0</div><div class="sl">research manuscripts on SSRN</div></div>
+    <div class="stat"><div class="sn" data-n="1">0</div><div class="sl">U.S. patent application filed</div></div>
+    <div class="stat"><div class="sn" data-n="30">0</div><div class="sl">runnable tests in published examples</div></div>
+    <div class="stat"><div class="sn" data-n="2025">0</div><div class="sl">DataGovernAI LLC founded</div></div>
+  </div>
+</section>
 
-<section><div class="wrap stack" style="gap:24px;align-items:flex-start">
-<div class="eyebrow">What others say</div>
-<blockquote class="quote">"[QUOTE FROM A COLLABORATOR, REVIEWER, PROFESSOR OR PILOT USER — one or two sentences on the work or the problem.]"</blockquote>
-<div class="mute" style="font-size:15px">[NAME], [TITLE, ORGANIZATION]</div>
-</div></section>
+<section class="work-sec" id="research">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Work</div>
+      <h2 class="h2">Research, invention, and code you can run.</h2>
+    </div>
+    <div class="bento reveal">
+      <a class="tile big" href="/research/runtime-governance/">
+        <div class="t-k">Manuscript · SSRN</div>
+        <div class="t-h">Evidence-Bound Runtime Governance for Autonomous Multi-Agent AI Systems</div>
+        <div class="t-p">Policy enforcement, monitoring and risk-based human escalation at execution time.</div>
+        <div class="t-go">Read the overview →</div>
+      </a>
+      <div class="tile" id="patent">
+        <div class="t-k">U.S. patent application</div>
+        <div class="t-h">Governed multi-agent workflows</div>
+        <div class="t-p">No. 19/269,037 · filed July 15, 2025</div>
+      </div>
+      <a class="tile" href="/work/hominini/">
+        <div class="t-k">Case study</div>
+        <div class="t-h">The “all tests passed” bug</div>
+        <div class="t-p">My own verifier accepted a claim nobody had proven.</div>
+        <div class="t-go">See the fix →</div>
+      </a>
+      <a class="tile" href="/insights/when-agent-permission-should-expire/">
+        <div class="t-k">Note · Oct 24</div>
+        <div class="t-h">When should an agent's permission expire?</div>
+        <div class="t-go">Read →</div>
+      </a>
+      <a class="tile" href="/insights/agent-timeout-retry/">
+        <div class="t-k">Note · Oct 25</div>
+        <div class="t-h">The agent timed out. Should you retry?</div>
+        <div class="t-go">Read →</div>
+      </a>
+      <a class="tile" href="/notes/mcp-audience-boundary/">
+        <div class="t-k">Note · Oct 28</div>
+        <div class="t-h">The token is valid. The destination is wrong.</div>
+        <div class="t-go">Read →</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-<section class="alt tight"><div class="wrap row">
-<a class="card link" href="/insights/when-agent-permission-should-expire/" style="flex:1 1 300px;padding:32px;gap:12px"><div class="label">Research note · Oct 24, 2026</div><h3 style="line-height:1.3">When an AI agent's permission should expire</h3><p>A refund workflow raises a practical question: what should invalidate an earlier approval when the evidence changes?</p></a>
-<a class="card link" href="/insights/agent-timeout-retry/" style="flex:1 1 300px;padding:32px;gap:12px"><div class="label">Research note · Oct 25, 2026</div><h3 style="line-height:1.3">The agent timed out. Should you retry?</h3><p>A timeout doesn't tell you whether the action happened. Workflows need an honest "outcome unknown" state.</p></a>
-<a class="card link" href="/books/nothing/" style="flex:1 1 300px;padding:32px;gap:12px"><div class="label">Also by Kiran · a novel</div><h3 style="line-height:1.3">Nothing</h3><p>A literary novel about work, family and the hours people keep postponing. Paperback and Kindle, October 2026.</p></a>
-</div></section>
+<section class="book-sec">
+  <div class="wrap book reveal">
+    <img src="/books/nothing/cover.jpg" alt="Nothing: A Novel, by Kiran Yenaganti" width="220" height="330" loading="lazy">
+    <div>
+      <div class="eyebrow">Also by Kiran · fiction</div>
+      <h2 class="h2s">Nothing: A Novel</h2>
+      <p class="mute">A nurse, a retired cleaner and a wealthy man, and the hours each of them keeps postponing. Out now in paperback and Kindle.</p>
+      <div class="cta-row"><a class="btn btn-ghost" href="/books/nothing/">About the book</a><a class="btn btn-ghost" href="https://www.amazon.com/dp/B0HPKKMYDZ">Amazon</a></div>
+    </div>
+  </div>
+</section>
 
-<section id="about"><div class="wrap split">
-<div class="a stack" style="gap:12px"><div class="eyebrow">About</div><h2 class="h2s">Kiran Yenaganti</h2></div>
-<div class="b" style="gap:24px">
-<p>Founder of DataGovernAI LLC and an independent researcher in AI runtime governance. Doctoral studies in Information Technology at the University of the Cumberlands; MSc in Entrepreneurship &amp; Innovation from Hult, San Francisco. Background in data engineering on Azure, Databricks, Python and SQL.</p>
-<p>The work started with a leasing assistant that could look up availability and book a tour — and the question of what should happen when that availability data is thirty minutes old.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:8px">
-<a class="btn btn-acc" href="https://www.linkedin.com/in/kiran-yenaganti/">Connect on LinkedIn</a>
-<a class="btn btn-ghost" href="/about/">Full story</a>
-</div></div></div></section>
+<section class="cta-sec" id="about">
+  <div class="wrap cta-box reveal">
+    <div>
+      <h2 class="h2s">Building agents that touch real systems?</h2>
+      <p class="mute">I'm Kiran Yenaganti, founder of DataGovernAI and a doctoral researcher in IT. I'm always up for a technical conversation about agent verification, approvals and runtime controls.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-acc" href="https://www.linkedin.com/in/kiran-yenaganti/">Connect on LinkedIn</a>
+      <a class="btn btn-ghost" href="/about/">My story</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // typing terminal
+  var L=[["t","14:02:11"],["agent <b>leasing-assistant</b> → <b>confirm_tour(unit 4B)</b>"],["evidence: availability · fetched <b>31 min ago</b>"],["policy: commitments need evidence ≤ 15 min → <span class='w'>STALE</span>"],["risk: binding commitment · tier <b>high</b>"],["HOLD"],["audit record <b>#a91f</b> written"]];
+  var T=document.getElementById('term'), times=["14:02:11","14:02:11","14:02:12","14:02:12","14:02:13"];
+  function run(){T.innerHTML="";var i=1,k=0;(function next(){if(i>=L.length){setTimeout(run,6000);return;}
+    var d=document.createElement('div');
+    if(L[i][0]==="HOLD"){d.className="hold";d.innerHTML="<b>ACTION HELD · ESCALATED TO HUMAN</b><span>Re-fetch availability, then approve or reject.</span>";}
+    else{d.className="ln";d.innerHTML="<span class='t'>"+times[k]+"</span><span class='m'>"+L[i][0]+"</span>";k++;}
+    T.appendChild(d);requestAnimationFrame(function(){d.classList.add('in')});i++;setTimeout(next,i===6?1100:700);})();}
+  run();
+
+  // demo
+  var A={read:{n:"look up availability",risk:"low",max:60},tour:{n:"confirm a tour",risk:"binding",max:15},refund:{n:"issue an $80 refund",risk:"financial",max:5}};
+  var act="tour",age=document.getElementById('age'),out=document.getElementById('ageOut'),ch=document.getElementById('changed');
+  var V=document.getElementById('verdict'),VB=document.getElementById('vBadge'),VT=document.getElementById('vText'),C=document.getElementById('checks');
+  document.querySelectorAll('.seg-b').forEach(function(b){b.setAttribute('aria-checked',b.classList.contains('on'));b.onclick=function(){document.querySelectorAll('.seg-b').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-checked','false')});b.classList.add('on');b.setAttribute('aria-checked','true');act=b.dataset.a;upd();}});
+  function row(ok,label,detail){return "<li class='"+ok+"'><span class='ck'>"+(ok==="pass"?"✓":ok==="warn"?"!":"✗")+"</span><div><b>"+label+"</b><span>"+detail+"</span></div></li>";}
+  function upd(){var a=A[act],m=+age.value,c=ch.checked;out.textContent=m+" min";
+    var fresh=m<=a.max, html="", v, t;
+    html+=row("pass","Permission","Agent is authorized to "+a.n+".");
+    html+=row(c?"fail":(fresh?"pass":"warn"),"Evidence",c?"The record changed after it was fetched. The approval no longer matches reality.":(fresh?"Evidence is "+m+" min old, within the "+a.max+"-min limit for a "+a.risk+" action.":"Evidence is "+m+" min old. A "+a.risk+" action needs it under "+a.max+" min."));
+    var needHuman=(a.risk!=="low")&&(c||!fresh);
+    html+=row(needHuman?"warn":"pass","Risk routing",a.risk==="low"?"Low-risk read. No human needed.":(needHuman?"Binding action on unreliable evidence → route to a person.":"Evidence holds. Safe to proceed automatically."));
+    if(c&&a.risk!=="low"){v="ESCALATE";t="Held for a person. The data moved after the approval, so the approval no longer applies.";V.className="verdict esc";}
+    else if(!fresh||c){v="RE-FETCH";t="Refresh the evidence first, then re-run the checks.";V.className="verdict ref";}
+    else {v="ALLOW";t="Every check passes. The action runs and an audit record is written.";V.className="verdict ok";}
+    VB.textContent=v;VT.textContent=t;C.innerHTML=html;
+    age.style.setProperty('--p',(m/60*100)+'%');}
+  age.oninput=upd;ch.onchange=upd;upd();
+
+  // counters + reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('vis');
+    e.target.querySelectorAll('.sn').forEach(function(s){var n=+s.dataset.n,st=n>1000?n-25:0,t0=null;function f(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1200,1);s.textContent=Math.round(st+(n-st)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);});
+    io.unobserve(e.target);});},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
 
 </main>
 <footer class="site"><div class="wrap">
