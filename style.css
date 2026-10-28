@@ -190,7 +190,15 @@ a.tile:hover{transform:translateY(-3px);border-color:var(--acc);color:var(--fg)}
 .cta-photo{width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid var(--acc);flex:0 0 112px}
 @media (max-width:640px){.cta-photo{width:88px;height:88px;flex-basis:88px}}
 
-.about-photo{width:100%;max-width:320px;border-radius:10px;display:block;margin-bottom:8px;filter:contrast(1.05)}
+.about-photo{width:100%;max-width:280px;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:10px;display:block;margin-bottom:20px}
 .author-row{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
 .author-photo{width:160px;height:200px;object-fit:cover;border-radius:10px;flex:0 0 160px}
 .author-row>.stack{flex:1 1 300px}
+
+.books-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:36px}
+.book-card{display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.02);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+a.book-card:hover{border-color:var(--acc);transform:translateY(-2px)}
+.book-cover{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:6px;display:block}
+.book-ph{width:100%;aspect-ratio:2/3;border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px dashed rgba(255,255,255,.22);font-family:inherit;letter-spacing:.08em;text-transform:uppercase;font-size:13px;opacity:.75}
+.book-tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.book-card h3{margin:0;font-size:22px}.book-card p{margin:0;opacity:.8;line-height:1.55}
