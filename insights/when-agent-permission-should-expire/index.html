@@ -36,16 +36,18 @@
 <div class="prose">
 <p>A support agent needs a person's approval to refund $80. The approval is granted. Then the agent waits in a queue. While it waits, the order changes, or the customer record changes, or someone else already issued a refund. The approval still exists. It no longer fits the situation.</p>
 <p>Checking the agent's identity or role does not help here. The system has to check whether <em>this specific refund</em> is still covered.</p>
+
 <h2>Make permission specific enough to check</h2>
 <p>Bind the approval to the things that would make it wrong if they changed: the order, the customer, the amount, the destination, the version of the evidence it was granted on, and an expiry time. A material change to any of them should require a new decision.</p>
 <p>A check inside the agent's planning loop still leaves a gap between checking and acting. Where the executing service can enforce the conditions atomically — a version check at the moment of execution, for instance — it should.</p>
+
 <h2>Revocation needs an execution boundary</h2>
 <p>Temporary credentials limit how long access lasts. They do not prove an approved action is still appropriate, and revoking access cannot undo a refund that has already gone out. The audit trail has to distinguish a refund <em>requested</em> from a refund <em>confirmed</em>, including the uncertain state after a timeout.</p>
+
 <h2>Try the example</h2>
 <p>A small Python example with a fake payment adapter and six local tests shows the pattern. It makes no real payments and no network calls, and it does not validate the research prototype.</p>
 <ul>
 <li><a href="https://github.com/kiranyenaganti9/kiranyenaganti9/tree/main/examples/approval-scope">Code, tests and limitations on GitHub</a></li>
-<li><a href="/media/evidence-before-action.mp4">Watch the walkthrough (MP4)</a></li>
 </ul>
 <p>Related: <a href="/insights/agent-timeout-retry/">The agent timed out. Should you retry?</a></p>
 </div>
