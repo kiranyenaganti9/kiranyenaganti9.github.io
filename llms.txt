@@ -1,0 +1,16 @@
+# Kiran Yenaganti
+
+> Founder of DataGovernAI LLC, independent AI runtime governance researcher, doctoral student in Information Technology and author of Nothing: A Novel.
+
+This index points to public source pages. It does not establish independent validation or search indexing.
+
+- [Kiran Yenaganti | AI Runtime Governance Researcher & Founder](https://www.kiranyenaganti.com/): Kiran Yenaganti, founder of DataGovernAI LLC, researches runtime governance for autonomous AI agents. Explore manuscripts, code examples and Nothing: A Novel.
+- [Kiran Yenaganti | Biography, Research & Entrepreneurship](https://www.kiranyenaganti.com/about/): Meet Kiran Yenaganti, founder of DataGovernAI LLC, independent AI governance researcher, doctoral student in IT and author of Nothing: A Novel.
+- [AI Runtime Governance Research & Papers | Kiran Yenaganti](https://www.kiranyenaganti.com/research/): Read Kiran Yenaganti’s preprints on evidence-bound runtime governance and Agent-Gov-Bench, with DOI records, technical notes and runnable AI agent examples.
+- [Evidence-Bound AI Runtime Governance | Kiran Yenaganti](https://www.kiranyenaganti.com/research/runtime-governance/): An overview of Kiran Yenaganti’s preprint on runtime policy enforcement, evidence checks and risk-based human escalation for autonomous multi-agent AI systems.
+- [Books by Kiran Yenaganti | Nothing: A Novel](https://www.kiranyenaganti.com/books/): Explore books by Kiran Yenaganti, including Nothing: A Novel, literary fiction about work, family and postponed time. Find verified editions and book details.
+- [Nothing: A Novel by Kiran Yenaganti | Official Book Page](https://www.kiranyenaganti.com/books/nothing/): Nothing: A Novel by Kiran Yenaganti. Literary fiction about work, family and the hours we postpone. Find paperback and Kindle editions, ISBN and book details.
+- [AI Agent Timeouts: When Is It Safe to Retry? | Kiran Yenaganti](https://www.kiranyenaganti.com/insights/agent-timeout-retry/): A timeout does not prove an action failed. Explore an AI agent refund example, reconciliation before retry and a runnable educational code sample.
+- [When AI Agent Approval Should Expire | Kiran Yenaganti](https://www.kiranyenaganti.com/insights/when-agent-permission-should-expire/): What happens when the facts behind an AI agent approval change? An evidence-bound refund example explains approval scope, expiration and human review.
+- [MCP Token Audience Validation & Caller Binding | Kiran Yenaganti](https://www.kiranyenaganti.com/notes/mcp-audience-boundary/): A runnable MCP authorization example covers token audience validation, trusted caller binding and dispatch denial, with educational code and local tests.
+- [DataGovernAI Agent Verification Case Study | Kiran Yenaganti](https://www.kiranyenaganti.com/work/hominini/): An engineering case study by Kiran Yenaganti on unsupported agent success claims, verifier repair and targeted regression tests in the DataGovernAI prototype.

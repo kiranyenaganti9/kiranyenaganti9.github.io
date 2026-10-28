@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DataGovernAI prototype — engineering case study</title>
-<meta name="description" content="How the DataGovernAI research prototype's verifier accepted an unsupported 'all tests passed' claim, and the repair and regression tests that now reject it.">
+<title>DataGovernAI Agent Verification Case Study | Kiran Yenaganti</title>
+<meta name="description" content="An engineering case study by Kiran Yenaganti on unsupported agent success claims, verifier repair and targeted regression tests in the DataGovernAI prototype.">
 <meta name="author" content="Kiran Yenaganti">
 <link rel="canonical" href="https://www.kiranyenaganti.com/work/hominini/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataGovernAI prototype — engineering case study">
-<meta property="og:description" content="How the DataGovernAI research prototype's verifier accepted an unsupported 'all tests passed' claim, and the repair and regression tests that now reject it.">
+<meta property="og:title" content="DataGovernAI Agent Verification Case Study | Kiran Yenaganti">
+<meta property="og:description" content="An engineering case study by Kiran Yenaganti on unsupported agent success claims, verifier repair and targeted regression tests in the DataGovernAI prototype.">
 <meta property="og:url" content="https://www.kiranyenaganti.com/work/hominini/">
 <meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
 <meta name="twitter:card" content="summary">
@@ -20,13 +20,184 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"Person","@id":"https://www.kiranyenaganti.com/#person","name":"Kiran Yenaganti","alternateName":"Kiran Kumar Yenaganti","url":"https://www.kiranyenaganti.com/","image":"https://www.kiranyenaganti.com/kiran-portrait.jpeg","jobTitle":"Founder, DataGovernAI LLC","description":"Founder of DataGovernAI LLC and independent researcher in runtime governance for autonomous AI agents; author of Nothing: A Novel.","worksFor":{"@id":"https://www.kiranyenaganti.com/#org"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Hult International Business School"},{"@type":"CollegeOrUniversity","name":"University of the Cumberlands"}],"knowsAbout":["AI runtime governance","Multi-agent systems","AI agent verification","Human-in-the-loop escalation","Data engineering"],"sameAs":["https://www.linkedin.com/in/kiran-yenaganti/","https://github.com/kiranyenaganti9","https://orcid.org/0009-0008-6291-1316","https://scholar.google.com/citations?user=bmWAnDgAAAAJ","https://ssrn.com/author=13609628","https://www.researchgate.net/profile/Kiran-Yenaganti-2","https://medium.com/@kiranyenaganti9","https://www.crunchbase.com/person/kiran-yenaganti-6b8e","https://www.goodreads.com/author/show/73226203.Kiran_Yenaganti"]},
-{"@type":"Organization","@id":"https://www.kiranyenaganti.com/#org","name":"DataGovernAI LLC","url":"https://www.datagovernai.com/","founder":{"@id":"https://www.kiranyenaganti.com/#person"},"foundingDate":"2025","sameAs":["https://www.crunchbase.com/organization/datagovernai"]},
-{"@type":"Book","name":"Nothing: A Novel","author":{"@id":"https://www.kiranyenaganti.com/#person"},"isbn":"979-8165432040","bookFormat":"https://schema.org/Paperback","datePublished":"2026-10-26","url":"https://www.kiranyenaganti.com/books/nothing/","sameAs":["https://www.amazon.com/dp/B0HPKKMYDZ","https://www.goodreads.com/book/show/262609197"]},
-{"@type":"WebSite","@id":"https://www.kiranyenaganti.com/#site","url":"https://www.kiranyenaganti.com/","name":"Kiran Yenaganti","publisher":{"@id":"https://www.kiranyenaganti.com/#person"}}
-]}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.kiranyenaganti.com/#person",
+      "name": "Kiran Yenaganti",
+      "alternateName": "Kiran Kumar Yenaganti",
+      "url": "https://www.kiranyenaganti.com/",
+      "image": "https://www.kiranyenaganti.com/kiran-portrait.jpeg",
+      "jobTitle": "Founder, DataGovernAI LLC",
+      "description": "Founder of DataGovernAI LLC and independent researcher in runtime governance for autonomous AI agents; author of Nothing: A Novel.",
+      "worksFor": {
+        "@id": "https://www.kiranyenaganti.com/#org"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Hult International Business School"
+        }
+      ],
+      "knowsAbout": [
+        "AI runtime governance",
+        "Multi-agent systems",
+        "AI agent verification",
+        "Human-in-the-loop escalation",
+        "Data engineering"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/kiran-yenaganti/",
+        "https://github.com/kiranyenaganti9",
+        "https://orcid.org/0009-0008-6291-1316",
+        "https://scholar.google.com/citations?user=bmWAnDgAAAAJ",
+        "https://ssrn.com/author=13609628",
+        "https://www.researchgate.net/profile/Kiran-Yenaganti-2",
+        "https://medium.com/@kiranyenaganti9",
+        "https://www.crunchbase.com/person/kiran-yenaganti-6b8e",
+        "https://www.goodreads.com/author/show/73226203.Kiran_Yenaganti"
+      ],
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of the Cumberlands",
+        "description": "Doctoral studies in Information Technology in progress"
+      },
+      "subjectOf": {
+        "@id": "https://www.kiranyenaganti.com/about/#profile"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.kiranyenaganti.com/#org",
+      "name": "DataGovernAI LLC",
+      "url": "https://www.datagovernai.com/",
+      "founder": {
+        "@id": "https://www.kiranyenaganti.com/#person"
+      },
+      "foundingDate": "2025",
+      "sameAs": [
+        "https://www.crunchbase.com/organization/datagovernai"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kiranyenaganti.com/#site",
+      "url": "https://www.kiranyenaganti.com/",
+      "name": "Kiran Yenaganti",
+      "publisher": {
+        "@id": "https://www.kiranyenaganti.com/#person"
+      }
+    },
+    {
+      "@type": "Book",
+      "@id": "https://www.kiranyenaganti.com/about/#book-nothing",
+      "name": "Nothing: A Novel",
+      "alternateName": "Nothing",
+      "author": {
+        "@id": "https://www.kiranyenaganti.com/#person"
+      },
+      "url": "https://www.kiranyenaganti.com/books/nothing/",
+      "image": "https://www.kiranyenaganti.com/books/nothing/cover.jpg",
+      "inLanguage": "en",
+      "genre": "Literary fiction",
+      "creativeWorkStatus": "Published",
+      "description": "Nothing: A Novel by Kiran Yenaganti is literary fiction about work, family and the hours people postpone living. Available in paperback and Kindle editions.",
+      "workExample": [
+        {
+          "@id": "https://www.kiranyenaganti.com/books/nothing/#paperback"
+        },
+        {
+          "@id": "https://www.kiranyenaganti.com/books/nothing/#kindle"
+        }
+      ]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://www.kiranyenaganti.com/books/nothing/#paperback",
+      "name": "Nothing: A Novel",
+      "author": {
+        "@id": "https://www.kiranyenaganti.com/#person"
+      },
+      "exampleOfWork": {
+        "@id": "https://www.kiranyenaganti.com/about/#book-nothing"
+      },
+      "bookFormat": "https://schema.org/Paperback",
+      "isbn": "9798165432040",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ASIN",
+        "value": "B0HPKKMYDZ"
+      },
+      "numberOfPages": 264,
+      "datePublished": "2026-10-26",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HPKKMYDZ",
+      "sameAs": "https://www.goodreads.com/book/show/262609197"
+    },
+    {
+      "@type": "Book",
+      "@id": "https://www.kiranyenaganti.com/books/nothing/#kindle",
+      "name": "Nothing: A Novel",
+      "author": {
+        "@id": "https://www.kiranyenaganti.com/#person"
+      },
+      "exampleOfWork": {
+        "@id": "https://www.kiranyenaganti.com/about/#book-nothing"
+      },
+      "bookFormat": "https://schema.org/EBook",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ASIN",
+        "value": "B0HPJPLDXW"
+      },
+      "numberOfPages": 243,
+      "datePublished": "2026-10-28",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HPJPLDXW",
+      "sameAs": "https://www.goodreads.com/book/show/262612173"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kiranyenaganti.com/work/hominini/#webpage",
+      "url": "https://www.kiranyenaganti.com/work/hominini/",
+      "name": "DataGovernAI Agent Verification Case Study | Kiran Yenaganti",
+      "description": "An engineering case study by Kiran Yenaganti on unsupported agent success claims, verifier repair and targeted regression tests in the DataGovernAI prototype.",
+      "isPartOf": {
+        "@id": "https://www.kiranyenaganti.com/#site"
+      },
+      "inLanguage": "en",
+      "about": {
+        "@id": "https://www.kiranyenaganti.com/#person"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.kiranyenaganti.com/work/hominini/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Kiran Yenaganti",
+          "item": "https://www.kiranyenaganti.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "DataGovernAI",
+          "item": "https://www.kiranyenaganti.com/work/hominini/"
+        }
+      ]
+    }
+  ]
+}
 </script>
+
+<meta name="twitter:title" content="DataGovernAI Agent Verification Case Study | Kiran Yenaganti">
+<meta name="twitter:description" content="An engineering case study by Kiran Yenaganti on unsupported agent success claims, verifier repair and targeted regression tests in the DataGovernAI prototype.">
+<meta name="twitter:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta property="og:image:alt" content="Portrait of Kiran Yenaganti">
 </head>
 <body>
 <header class="site"><nav class="site wrap" aria-label="Primary">
