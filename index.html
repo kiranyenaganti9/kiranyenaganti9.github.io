@@ -185,14 +185,17 @@
 <body>
 <header class="site"><nav class="site wrap" aria-label="Primary">
 <a class="brand" href="/">KIRAN YENAGANTI</a>
-<div class="links">
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Menu"><span></span><span></span><span></span></button>
+<div class="links" id="site-links">
 <a href="/research/">Research</a>
 <a href="/work/hominini/">DataGovernAI</a>
 <a href="/#patent">Patent</a>
 <a href="/books/">Books</a>
 <a href="/about/">About</a>
 <a class="cta" href="https://www.linkedin.com/in/kiran-yenaganti/">Get in touch</a>
-</div></nav></header>
+</div></nav>
+<script>(function(){var b=document.querySelector(".nav-toggle"),l=document.getElementById("site-links");if(!b)return;b.addEventListener("click",function(){var o=l.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&l.classList.contains("open")){l.classList.remove("open");b.setAttribute("aria-expanded","false");}});})();</script>
+</header>
 <main id="main">
 <section class="h2o" id="top">
   <div class="glow" aria-hidden="true"></div>
@@ -223,7 +226,7 @@
     <div class="vs-card ok">
       <div class="vs-k">What most agent stacks check</div>
       <div class="vs-q">“Is this action <b>allowed</b>?”</div>
-      <div class="vs-a">✓ Identity valid &nbsp; ✓ Scope valid &nbsp; ✓ Approved</div>
+      <div class="vs-a"><span>✓ Identity valid</span><span>✓ Scope valid</span><span>✓ Approved</span></div>
     </div>
     <div class="vs-mid">but</div>
     <div class="vs-card bad">
@@ -288,10 +291,10 @@
 
 <section class="stats-sec">
   <div class="wrap stats reveal">
-    <div class="stat"><div class="sn" data-n="2">0</div><div class="sl">research manuscripts on SSRN</div></div>
-    <div class="stat"><div class="sn" data-n="1">0</div><div class="sl">U.S. patent application filed</div></div>
-    <div class="stat"><div class="sn" data-n="30">0</div><div class="sl">runnable tests in published examples</div></div>
-    <div class="stat"><div class="sn" data-n="2025">0</div><div class="sl">DataGovernAI LLC founded</div></div>
+    <div class="stat"><div class="sn" data-n="2">2</div><div class="sl">research manuscripts on SSRN</div></div>
+    <div class="stat"><div class="sn" data-n="1">1</div><div class="sl">U.S. patent application filed</div></div>
+    <div class="stat"><div class="sn" data-n="30">30</div><div class="sl">runnable tests in published examples</div></div>
+    <div class="stat"><div class="sn" data-n="2025">2025</div><div class="sl">DataGovernAI LLC founded</div></div>
   </div>
 </section>
 
@@ -352,7 +355,7 @@
 
 <section class="cta-sec" id="about">
   <div class="wrap cta-box reveal">
-    <img class="cta-photo" src="/kiran-portrait.jpeg" alt="Kiran Yenaganti" width="112" height="112" loading="lazy">
+    <img class="cta-photo" src="/kiran-portrait.jpeg" alt="Kiran Yenaganti" width="112" height="112">
     <div>
       <h2 class="h2s">Building agents that touch real systems?</h2>
       <p class="mute">I'm Kiran Yenaganti, founder of DataGovernAI and a doctoral researcher in IT. I'm always up for a technical conversation about agent verification, approvals and runtime controls.</p>
@@ -364,6 +367,25 @@
   </div>
 </section>
 
+
+<section class="notes-sec" aria-labelledby="technical-notes">
+  <div class="wrap">
+    <div class="notes-box reveal">
+      <div>
+        <div class="eyebrow">Field notes</div>
+        <h2 id="technical-notes">Practical notes on AI agent governance</h2>
+        <p class="notes-p">The decisions an agent faces before it acts, each with a small example you can run.</p>
+        <p class="notes-more"><a href="/research/">Research papers and runnable examples</a></p>
+      </div>
+      <ul class="notes-list">
+        <li><a href="/insights/when-agent-permission-should-expire/">When an AI agent’s approval should expire</a></li>
+        <li><a href="/insights/agent-timeout-retry/">AI agent timeouts and safe retries</a></li>
+        <li><a href="/notes/mcp-audience-boundary/">MCP token audience validation and caller binding</a></li>
+        <li><a href="/books/nothing/">Nothing: A Novel by Kiran Yenaganti</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
 <script>
 (function(){
   // typing terminal
@@ -402,21 +424,15 @@
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 })();
 </script>
-
-<section class="wrap" aria-labelledby="technical-notes"><h2 id="technical-notes">Practical notes on AI agent governance</h2><p>Explore the decisions an agent faces before it acts.</p><ul><li><a href="/insights/when-agent-permission-should-expire/">When an AI agent’s approval should expire</a></li><li><a href="/insights/agent-timeout-retry/">AI agent timeouts and safe retries</a></li><li><a href="/notes/mcp-audience-boundary/">MCP token audience validation and caller binding</a></li></ul><p><a href="/research/">Research papers and runnable examples</a> · <a href="/books/nothing/">Nothing: A Novel by Kiran Yenaganti</a></p></section>
 </main>
 <footer class="site"><div class="wrap">
-<div>© 2026 Kiran Yenaganti · DataGovernAI LLC</div>
-<div class="links">
-<a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a>
-<a href="https://github.com/kiranyenaganti9">GitHub</a>
-<a href="https://orcid.org/0009-0008-6291-1316">ORCID</a>
-<a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Scholar</a>
-<a href="https://ssrn.com/author=13609628">SSRN</a>
-<a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a>
-<a href="https://medium.com/@kiranyenaganti9">Medium</a>
-<a href="https://www.amazon.com/author/kiranyenaganti">Amazon author profile</a>
-<a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a>
-</div></div></footer>
+<div class="foot-id"><b>KIRAN YENAGANTI</b><p>Founder of DataGovernAI LLC. Independent researcher in runtime governance for autonomous AI agents. Author of <a href="/books/nothing/">Nothing: A Novel</a>.</p></div>
+<div class="foot-cols">
+<div class="foot-col"><span class="label">Site</span><a href="/research/">Research</a><a href="/work/hominini/">DataGovernAI</a><a href="/books/">Books</a><a href="/about/">About</a></div>
+<div class="foot-col"><span class="label">Research profiles</span><a href="https://orcid.org/0009-0008-6291-1316">ORCID</a><a href="https://scholar.google.com/citations?user=bmWAnDgAAAAJ">Google Scholar</a><a href="https://ssrn.com/author=13609628">SSRN</a><a href="https://www.researchgate.net/profile/Kiran-Yenaganti-2">ResearchGate</a></div>
+<div class="foot-col"><span class="label">Elsewhere</span><a href="https://www.linkedin.com/in/kiran-yenaganti/">LinkedIn</a><a href="https://github.com/kiranyenaganti9">GitHub</a><a href="https://medium.com/@kiranyenaganti9">Medium</a><a href="https://www.amazon.com/author/kiranyenaganti">Amazon author profile</a><a href="https://www.crunchbase.com/person/kiran-yenaganti-6b8e">Crunchbase</a></div>
+</div>
+<div class="foot-bottom"><span>© 2026 Kiran Yenaganti · DataGovernAI LLC</span><span>Updated November 2026</span></div>
+</div></footer>
 </body>
 </html>
