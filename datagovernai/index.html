@@ -81,11 +81,50 @@
 <div class="sec-head"><h2 class="h2" id="enforces-title">What it enforces.</h2></div>
 <div class="dga-cards"><div class="card"><h3>Deny by default</h3><p>A tool call runs only if a policy allows it.</p></div><div class="card"><h3>Checked arguments</h3><p>Arguments are validated and normalized before policy is applied, so look-alike inputs can’t slip past.</p></div><div class="card"><h3>Human approval</h3><p>Risky calls wait for a named approver, and each approval works once, for that exact request.</p></div><div class="card"><h3>Agents never hold tool credentials</h3><p>The gateway calls tools on the agent’s behalf; tools sit on isolated internal networks.</p></div><div class="card"><h3>Tamper-evident audit</h3><p>Every decision is chained by hash and signed at checkpoints, so an edited or deleted record shows up.</p></div><div class="card"><h3>Evidence you can verify offline</h3><p>Signed evidence bundles can be checked on another machine with a small standalone verifier.</p></div></div>
 </div></section>
-<section class="alt" aria-labelledby="operators-title"><div class="wrap dga-operators">
+<section class="alt" aria-labelledby="demo-title"><div class="wrap">
+<div class="sec-head"><h2 class="h2" id="demo-title">See it work.</h2></div>
+<p class="dga-label">Demo with a real Claude Code agent and synthetic data.</p>
+<p class="dga-intro">We connected Claude Code to the DataGovernAI gateway with one agent key and gave it one ordinary request: <em>“Look up ticket 1042, export all 250 tickets for Acme Example to the warehouse, and delete ticket 1042.”</em> The helpdesk, the tickets and the people are fake. The organisation’s policy: reading a ticket is allowed; exporting more than 100 tickets needs a person’s approval; deleting is blocked.</p>
+<ol class="dga-run">
+<li><h3>Allowed: the lookup runs.</h3><p>The gateway checks the call against policy, calls the tool on the agent’s behalf, and returns the ticket. The agent never holds the helpdesk’s credential.</p></li>
+<li><h3>Held: the export waits for a person.</h3><p>250 is over the limit, so the call is held and the agent is told exactly that. A named approver sees the request in the dashboard.</p>
+<figure><picture><source media="(max-width:640px)" srcset="img/demo-approval-card-phone.png"><img src="img/demo-approval-card-desktop.png" alt="Dashboard card: Export to warehouse, held because count is over 100, with Approve and Reject buttons" loading="lazy" width="1044" height="197"></picture><figcaption>The approval card the approver sees.</figcaption></figure></li>
+<li><h3>Approved: it runs once.</h3><p>After Dana Approver approves, the agent repeats the identical call with the approval id. It runs exactly once; a repeat returns the same result instead of running again.</p></li>
+<li><h3>Blocked: the delete never reaches the tool.</h3><p>The agent read the policy, saw that deleting is blocked, and didn’t try. When we told it to try anyway, the gateway refused with a reason: “Not allowed by your policy.” The helpdesk was never called.</p>
+<figure><picture><source media="(max-width:640px)" srcset="img/demo-decisions-phone.png"><img src="img/demo-decisions-desktop.png" alt="Decisions page: lookup allowed, export needs approval, export allowed after approval by dana.approver, delete blocked" loading="lazy" width="1100" height="569"></picture><figcaption>Every decision, in plain words.</figcaption></figure></li>
+<li><h3>Evidence anyone can check.</h3><p>Every step lands in a tamper-evident audit log. The organisation downloads a signed evidence bundle and verifies it offline with a small standalone verifier: <code>RESULT: INTACT AND AUTHENTIC</code>.</p>
+<figure><picture><source media="(max-width:640px)" srcset="img/demo-audit-phone.png"><img src="img/demo-audit-desktop.png" alt="Audit page: audit log intact, evidence bundle download, public key and verifier downloads, recent activity" loading="lazy" width="1100" height="1150"></picture><figcaption>The audit page, with the evidence download.</figcaption></figure></li>
+</ol>
+<p class="dga-note">When the agent was held, it proposed splitting the export into batches of 100. We replayed exactly that with a 24-hour running-total rule in place: the second batch of 100 was held too, with the reason “running total of count in the last 24 h would be 200 (limit 100)”.</p>
+<details class="dga-more"><summary>The policy screen</summary>
+<figure><picture><source media="(max-width:640px)" srcset="img/demo-policy-phone.png"><img src="img/demo-policy-desktop.png" alt="Policy per operation: delete_ticket blocked; export_tickets allowed but needs approval when count is over 100; lookup_ticket allowed" loading="lazy" width="1100" height="944"></picture><figcaption>Each operation of your own tool: allowed, needs approval or blocked, plus conditions.</figcaption></figure>
+</details>
+</div></section>
+<section aria-labelledby="why-title"><div class="wrap">
+<div class="sec-head"><h2 class="h2" id="why-title">Why teams need this.</h2></div>
+<div class="dga-cards dga-cards-2">
+<div class="card"><h3>Agents act on customer data</h3><p>Agents can call internal tools that read, export or change customer records. Without a gateway, nothing records which person allowed a given call, or stops the ones nobody should allow.</p></div>
+<div class="card"><h3>“Who approved that?”</h3><p>When a customer, an auditor or your own security team asks which AI actions touched their data and who approved them, a log line from the agent is not an answer. A signed, verifiable record is.</p></div>
+<div class="card"><h3>Security reviews ask about AI</h3><p>When a customer’s security questionnaire asks how your AI agents are controlled, you need something to show: the policy, the named approvals and the evidence.</p></div>
+<div class="card"><h3>Fail closed</h3><p>If the gateway cannot decide, the call is refused, never passed through. You can remove it at any time by pointing the agent straight back at your tool.</p></div>
+</div>
+<p class="dga-note">This is the problem DataGovernAI is built for. It is early and invite-only: we don’t quote numbers or customers we can’t show you.</p>
+</div></section>
+<section class="alt" aria-labelledby="pilot-title"><div class="wrap dga-operators">
+<h2 class="h2" id="pilot-title">What a pilot looks like.</h2>
+<ul class="dga-list">
+<li><b>Free, for 2 weeks.</b></li>
+<li><b>Your staging tool</b>: connect a staging copy of your MCP tool, with synthetic or masked data. No production data.</li>
+<li><b>About an hour of setup</b>, together: your organisation, your team’s accounts, your tool, a policy, an agent key.</li>
+<li><b>Three test calls</b>: one allowed, one blocked, one approved by your own approver. Then you verify an evidence bundle yourself.</li>
+<li><b>At the end</b>, your organisation’s data is deleted unless you continue.</li>
+</ul>
+</div></section>
+<section aria-labelledby="operators-title"><div class="wrap dga-operators">
 <h2 class="h2" id="operators-title">For operators.</h2>
 <p>Each person has their own account with a role: viewer, approver or admin. Sign-in supports authenticator-app two-factor codes. Everything runs over HTTPS, and every action is recorded under the person who took it.</p>
 </div></section>
-<section aria-labelledby="status-title"><div class="wrap dga-status">
+<section class="alt" aria-labelledby="status-title"><div class="wrap dga-status">
 <h2 class="h2" id="status-title">Early access.</h2>
 <p>DataGovernAI is in early access. Accounts are created by invitation for testers. To try it, request access.</p>
 <div class="cta-row">
