@@ -359,3 +359,5 @@ a.book-card:hover{border-color:var(--acc);transform:translateY(-2px)}
 @media(max-width:640px){.dga .dga-run li{padding-left:0;padding-top:26px}.dga .dga-run li::before{top:0}.dga figure img{border-radius:8px}}
 .dga .dga-cards-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:640px){.dga .dga-cards-2{grid-template-columns:1fr}}
+.dga .dga-contact{color:var(--mute);font-size:15px;margin-top:4px}
+.dga .dga-contact a{color:var(--acc)}
