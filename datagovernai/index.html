@@ -3,15 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DataGovernAI | Kiran Yenaganti</title>
-<meta name="description" content="DataGovernAI is available by invitation.">
+<title>DataGovernAI — governance gateway for AI agents</title>
+<meta name="description" content="DataGovernAI checks AI agent tool calls against policy, routes calls for human approval, and records decisions in a tamper-evident audit log.">
 <meta name="author" content="Kiran Yenaganti">
 <link rel="canonical" href="https://www.kiranyenaganti.com/datagovernai/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DataGovernAI — governance gateway for AI agents">
+<meta property="og:description" content="DataGovernAI checks AI agent tool calls against policy, routes calls for human approval, and records decisions in a tamper-evident audit log.">
+<meta property="og:url" content="https://www.kiranyenaganti.com/datagovernai/">
+<meta property="og:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0B0C0E">
+<meta name="msvalidate.01" content="07E7765EF72F0B1B570C5CE54EDE014B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<meta name="twitter:title" content="DataGovernAI — governance gateway for AI agents">
+<meta name="twitter:description" content="DataGovernAI checks AI agent tool calls against policy, routes calls for human approval, and records decisions in a tamper-evident audit log.">
+<meta name="twitter:image" content="https://www.kiranyenaganti.com/kiran-portrait.jpeg">
+<meta property="og:image:alt" content="Portrait of Kiran Yenaganti">
 </head>
 <body>
 <header class="site"><nav class="site wrap" aria-label="Primary">
@@ -27,13 +38,61 @@
 </div></nav>
 <script>(function(){var b=document.querySelector(".nav-toggle"),l=document.getElementById("site-links");if(!b)return;b.addEventListener("click",function(){var o=l.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&l.classList.contains("open")){l.classList.remove("open");b.setAttribute("aria-expanded","false");}});})();</script>
 </header>
-<main id="main">
-<article class="art"><div class="narrow">
-<div class="head"><h1>DataGovernAI</h1><p class="sub">Available by invitation.</p></div>
-<div class="prose">
-<p>Access is by invitation only. <a href="https://assistantbots-mac-mini.tail3bb81c.ts.net:8443/login">Sign in</a> with the account you were given, or <a href="https://www.linkedin.com/in/kiran-yenaganti/">get in touch</a> to request access.</p>
+<main id="main" class="dga">
+<section class="dga-hero" aria-labelledby="product-title"><div class="wrap">
+<div class="eyebrow">DataGovernAI</div>
+<p class="dga-badge">Early access · by invitation</p>
+<h1 id="product-title">Every AI agent tool call, checked before it runs.</h1>
+<p class="lead">DataGovernAI sits between AI agents and the tools and data they use. Each call is checked against your policy, sent to a person when it needs approval, and recorded in an audit log that shows tampering.</p>
+<div class="cta-row">
+<a class="btn btn-acc" href="https://www.linkedin.com/in/kiran-yenaganti/" target="_blank" rel="noopener">Request access</a>
+<a class="btn btn-ghost" href="https://assistantbots-mac-mini.tail3bb81c.ts.net:8443/login">Sign in</a>
 </div>
-</div></article>
+</div></section>
+<section class="alt" aria-labelledby="how-title"><div class="wrap">
+<div class="sec-head"><h2 class="h2" id="how-title">How it works.</h2></div>
+<div class="dga-how"><svg class="dga-flow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 800" role="img" aria-labelledby="flow-title flow-desc">
+<title id="flow-title">How DataGovernAI checks a tool call</title>
+<desc id="flow-desc">AI agent to DataGovernAI gateway to policy check. Allow: the tool runs. Needs approval: a named operator approves or rejects; an approved request runs once, and a rejected request is blocked. Deny: blocked with a reason. Every step writes to the audit log.</desc>
+<defs><marker id="dga-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+<g class="dga-connect" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#dga-arrow)">
+<path d="M170 72V102"/><path d="M170 162V192"/>
+<path d="M60 222H24V598H48"/><path d="M24 328H48"/><path d="M24 453H48"/>
+</g>
+<g class="dga-log-lines" fill="none" stroke="currentColor" stroke-dasharray="3 5">
+<path d="M280 42H332V710H302"/><path d="M280 132H332M280 222H332M302 328H332M302 453H332M302 598H332"/>
+</g>
+<g class="dga-box"><rect x="60" y="12" width="220" height="60" rx="10"/><rect x="60" y="102" width="220" height="60" rx="10"/><rect x="60" y="192" width="220" height="60" rx="10"/>
+<rect x="48" y="282" width="254" height="92" rx="10"/><rect x="48" y="402" width="254" height="164" rx="10"/><rect x="48" y="588" width="254" height="82" rx="10"/><rect x="48" y="688" width="254" height="92" rx="10"/></g>
+<g text-anchor="middle" fill="currentColor">
+<text x="170" y="48">AI agent</text><text x="170" y="138">DataGovernAI gateway</text><text x="170" y="228">Policy check</text>
+<text class="dga-svg-accent" x="175" y="314">Allow</text><text x="175" y="346">Tool runs</text>
+<text class="dga-svg-accent" x="175" y="434">Needs approval</text><text x="175" y="466">A named operator</text><text x="175" y="490">approves or rejects</text><text x="175" y="522">Approved → tool runs once</text><text x="175" y="546">Rejected → blocked</text>
+<text class="dga-svg-accent" x="175" y="618">Deny</text><text x="175" y="648">Blocked with a reason</text>
+<text class="dga-svg-accent" x="175" y="722">Audit log</text><text x="175" y="754">Every step writes here</text>
+</g></svg>
+<ol class="dga-steps">
+<li><h3>Send the call to the gateway.</h3><p>The AI agent asks DataGovernAI to call a tool on its behalf.</p></li>
+<li><h3>Check policy before it runs.</h3><p>The gateway validates and normalizes arguments, then allows the call, sends it to a named operator for approval, or blocks it with a reason.</p></li>
+<li><h3>Record every step.</h3><p>Every step writes to the tamper-evident audit log; an approval works once, for that exact request.</p></li>
+</ol></div>
+</div></section>
+<section aria-labelledby="enforces-title"><div class="wrap">
+<div class="sec-head"><h2 class="h2" id="enforces-title">What it enforces.</h2></div>
+<div class="dga-cards"><div class="card"><h3>Deny by default</h3><p>A tool call runs only if a policy allows it.</p></div><div class="card"><h3>Checked arguments</h3><p>Arguments are validated and normalized before policy is applied, so look-alike inputs can’t slip past.</p></div><div class="card"><h3>Human approval</h3><p>Risky calls wait for a named approver, and each approval works once, for that exact request.</p></div><div class="card"><h3>Agents never hold tool credentials</h3><p>The gateway calls tools on the agent’s behalf; tools sit on isolated internal networks.</p></div><div class="card"><h3>Tamper-evident audit</h3><p>Every decision is chained by hash and signed at checkpoints, so an edited or deleted record shows up.</p></div><div class="card"><h3>Evidence you can verify offline</h3><p>Signed evidence bundles can be checked on another machine with a small standalone verifier.</p></div></div>
+</div></section>
+<section class="alt" aria-labelledby="operators-title"><div class="wrap dga-operators">
+<h2 class="h2" id="operators-title">For operators.</h2>
+<p>Each person has their own account with a role: viewer, approver or admin. Sign-in supports authenticator-app two-factor codes. Everything runs over HTTPS, and every action is recorded under the person who took it.</p>
+</div></section>
+<section aria-labelledby="status-title"><div class="wrap dga-status">
+<h2 class="h2" id="status-title">Early access.</h2>
+<p>DataGovernAI is in early access. Accounts are created by invitation for testers. To try it, request access.</p>
+<div class="cta-row">
+<a class="btn btn-acc" href="https://www.linkedin.com/in/kiran-yenaganti/" target="_blank" rel="noopener">Request access</a>
+<a class="btn btn-ghost" href="https://assistantbots-mac-mini.tail3bb81c.ts.net:8443/login">Sign in</a>
+</div>
+</div></section>
 </main>
 <footer class="site"><div class="wrap">
 <div class="foot-id"><b>KIRAN YENAGANTI</b><p>Founder of DataGovernAI LLC. Independent researcher in runtime governance for autonomous AI agents. Author of <a href="/books/nothing/">Nothing: A Novel</a>.</p></div>

@@ -9,4 +9,6 @@
   <url><loc>https://www.kiranyenaganti.com/insights/agent-timeout-retry/</loc></url>
   <url><loc>https://www.kiranyenaganti.com/insights/when-agent-permission-should-expire/</loc></url>
   <url><loc>https://www.kiranyenaganti.com/notes/mcp-audience-boundary/</loc></url>
+  <!-- DataGovernAI checks AI agent tool calls against policy, routes calls for human approval, and records decisions in a tamper-evident audit log. -->
+  <url><loc>https://www.kiranyenaganti.com/datagovernai/</loc></url>
 </urlset>

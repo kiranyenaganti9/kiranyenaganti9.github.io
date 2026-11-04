@@ -314,3 +314,28 @@ a.book-card:hover{border-color:var(--acc);transform:translateY(-2px)}
 .book-ph{width:100%;aspect-ratio:2/3;border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px dashed rgba(255,255,255,.22);font-family:inherit;letter-spacing:.08em;text-transform:uppercase;font-size:13px;opacity:.75}
 .book-tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
 .book-card h3{margin:0;font-size:22px}.book-card p{margin:0;opacity:.8;line-height:1.55}
+
+/* DataGovernAI product page */
+.dga .dga-hero{padding:clamp(64px,9vw,112px) 0 96px}
+.dga .dga-hero .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.dga .dga-badge{font-family:var(--mono);font-size:12px;color:var(--mute);border:1px solid var(--line3);border-radius:999px;padding:7px 14px}
+.dga h1{font-size:clamp(38px,5.4vw,66px);line-height:1.02;letter-spacing:-.03em;max-width:920px}
+.dga .lead{max-width:700px}
+.dga .dga-how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.dga .dga-flow{display:block;width:100%;max-width:360px;height:auto;margin:auto;font-family:var(--sans);font-size:16px;color:var(--fg)}
+.dga .dga-connect{color:var(--acc)}
+.dga .dga-log-lines{color:var(--mute)}
+.dga .dga-box rect{fill:var(--panel);stroke:var(--line3)}
+.dga .dga-svg-accent{fill:var(--acc);font-weight:500}
+.dga .dga-steps{list-style:none;counter-reset:dga-step;margin:0;padding:0;display:grid;gap:40px}
+.dga .dga-steps li{counter-increment:dga-step;position:relative;padding-left:44px}
+.dga .dga-steps li::before{content:counter(dga-step,decimal-leading-zero);position:absolute;left:0;top:2px;font-family:var(--mono);font-size:14px;color:var(--acc)}
+.dga .dga-steps h3{font-size:22px;line-height:1.3;margin-bottom:12px}
+.dga .dga-steps p,.dga .dga-operators p,.dga .dga-status p{color:var(--mute);font-size:17px;line-height:1.55}
+.dga .dga-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.dga .card h3{line-height:1.25}
+.dga .dga-operators{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px}
+.dga .dga-status{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.dga .dga-status p{max-width:650px}
+@media(max-width:900px){.dga .dga-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.dga .dga-how{gap:32px}}
+@media(max-width:640px){.dga .dga-hero{padding:64px 0 72px}.dga .dga-cards,.dga .dga-how,.dga .dga-operators{grid-template-columns:1fr}.dga .dga-how{gap:48px}.dga .dga-operators{gap:26px}}
