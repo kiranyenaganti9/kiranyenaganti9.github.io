@@ -237,6 +237,13 @@
 <p>An agent is asked to confirm a tour against an availability record fetched half an hour ago. A governed workflow would re-fetch or route the decision to a person before committing, and log why. This is an illustration of the approach, not an experimental result.</p>
 <h2>From use case to research question</h2>
 <p>The leasing concept led to broader questions: how agents coordinate, how they use enterprise data, and how they recover when a model or data source fails. Those questions shaped the patent application on governed multi-agent workflows and the DataGovernAI prototype, where parts of the approach are tested in code.</p>
+<h2>Explore individual runtime decisions</h2>
+<p>These educational examples make specific governance questions easier to inspect in code:</p>
+<ul>
+<li><a href="/insights/when-agent-permission-should-expire/">When should an agent’s approval expire?</a> Follow an approval as the conditions behind it change.</li>
+<li><a href="/insights/agent-timeout-retry/">An agent timed out. Should it retry?</a> Separate a missing reply from an action that never happened.</li>
+<li><a href="/notes/mcp-audience-boundary/">A valid token at the wrong destination</a>. Examine the authorization boundary between MCP servers.</li>
+</ul>
 <h2>Open questions</h2>
 <ul>
 <li>How evidence quality is defined and measured.</li>
